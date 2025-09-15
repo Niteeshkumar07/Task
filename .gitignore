@@ -31,3 +31,40 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore build output
+/target/
+/out/
+
+# Ignore Maven wrapper files (optional)
+.mvn/wrapper/maven-wrapper.jar
+
+# Ignore Eclipse/IDE files
+*.classpath
+*.project
+*.settings/
+*.idea/
+*.iml
+
+# Ignore log files
+*.log
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore application properties (sensitive data)
+src/main/resources/application.properties
+src/main/resources/application.yml
+
+# Ignore IntelliJ specific
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ig
