@@ -70,3 +70,8 @@ src/main/resources/application.yml
 # Ig
 application.properties
 application.yml
+# Ignore build output
+/target/
+
+# Ignore application properties
+src/main/resources/application.properties
