@@ -68,3 +68,5 @@ src/main/resources/application.yml
 *.swp
 
 # Ig
+application.properties
+application.yml
