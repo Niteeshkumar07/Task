@@ -21,4 +21,7 @@ public class User {
   private String city;
   private String pincode;
 
+  @Version
+  private Integer version;
+
 }

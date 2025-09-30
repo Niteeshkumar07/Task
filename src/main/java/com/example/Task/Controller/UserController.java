@@ -35,6 +35,13 @@ public class UserController {
         return userService.updateUser(id, userDetails);
     }
 
+    // Checking For Optimistic Locking here we do as
+    @PutMapping("/update-old")
+    public User updateOldUser(@RequestBody User user) {
+        return userService.updateUserWithOldEntity(user);
+    }
+
+
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);

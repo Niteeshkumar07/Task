@@ -10,4 +10,7 @@ public interface UserService {
     User getUserById(Long id);
     User updateUser(Long id, User userDetails);
     void deleteUser(Long id);
+
+    // For only Optimistic locking Checking
+    User updateUserWithOldEntity(User user);
 }
