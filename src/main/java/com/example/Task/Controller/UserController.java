@@ -41,6 +41,13 @@ public class UserController {
         return userService.updateUserWithOldEntity(user);
     }
 
+    // We do task for pessimistic locking here
+    @PutMapping("/update-pessimistic/{id}")
+    public User updateUserPessimistic(@PathVariable Long id, @RequestBody User userDetails) {
+        return userService.updateUserPessimistic(id, userDetails);
+    }
+
+
 
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Long id) {

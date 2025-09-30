@@ -3,7 +3,7 @@ package com.example.Task.Service.UserImpl;
 import com.example.Task.Repository.UserRepository;
 import com.example.Task.Service.UserService;
 import com.example.Task.User;
-import jakarta.persistence.OptimisticLockException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
@@ -72,6 +72,21 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("Update failed: User was modified by someone else");
         }
     }
+
+    @Transactional
+    @Override
+    public User updateUserPessimistic(Long id, User userDetails) {
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        existingUser.setName(userDetails.getName());
+        existingUser.setEmail(userDetails.getEmail());
+        existingUser.setCity(userDetails.getCity());
+        existingUser.setPincode(userDetails.getPincode());
+
+        return userRepository.save(existingUser);
+    }
+
 
     @Override
     public void deleteUser(Long id) {
